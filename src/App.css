@@ -1,22 +1,137 @@
+* {
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
+.logo {
+  border-bottom: solid 1px rgb(196, 196, 196);
+  display: flex;
+  padding: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* # # # # # # # # # # # # HEADER # # # # # # # # # # # # */
+
+header {
+  display: flex;
+  align-items: center;
+
+  padding: 25px;
+  text-align: start;
+}
+h1 {
+  font-size: 1.5rem;
+}
+header div {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 10px;
+}
+header p {
+  color: grey;
 }
 
-.App-link {
-  color: #09d3ac;
+/* C'est picture qui contraint la hauteur du header */
+header picture {
+  border-radius: 20px;
+  height: 150px;
+}
+header img {
+  height: 100%;
+  border-radius: 7px;
+}
+
+/* # # # # # # # # # # # # CONTENT # # # # # # # # # # # # */
+
+.content {
+  background-color: #f4f5f5;
+}
+
+/* ici CONTRAINTE max 800px du conteneur des dishes*/
+
+.categorie {
+  margin: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 800px;
+}
+h2 {
+  text-align: start;
+  padding-left: 25px;
+}
+/* # # # # # # # # # # # # DISHES # # # # # # # # # # # # */
+
+/* dishes contraint la HAUTEUR FIXE - largeur 40%*/
+.dishes {
+  flex: 0 0 40%;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 10px;
+  margin: 10px;
+  background-color: white;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+.dishes:hover {
+  box-shadow: 8px 8px 20px #cdcccc;
+}
+
+.dishes nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 100%;
+  text-align: start;
+}
+
+.dishes nav div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+h3 {
+  font-size: 1rem;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+}
+
+.dishes p {
+  font-size: 0.8rem;
+  overflow: scroll;
+  color: rgb(157, 157, 157);
+}
+
+.dishes span {
+  font-size: 0.8rem;
+  color: rgb(157, 157, 157);
+  font-weight: bold;
+}
+
+.dishes h4 {
+  font-size: 0.8rem;
+  font-weight: normal;
+  color: #ff8000;
+  padding: 0;
+  margin: 0;
+}
+
+/* contrainte FIXE hauteur ET largeur d 'image*/
+.dishes picture {
+  width: 100px;
+  height: 100px;
+  margin-left: 15px;
+  flex: 0 0 auto;
+}
+
+.dishes img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
 }

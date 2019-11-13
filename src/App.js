@@ -1,24 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Logo from "./components/Logo";
+import Header from "./components/Header";
+import Categorie from "./components/Categorie";
+
+import "./App.css";
 
 function App() {
+  const [data, setData] = useState(null);
+
+  const fetchData = async () => {
+    const response = await axios.get("https://deliveroo-api.now.sh/menu");
+    setData(response.data);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Logo />
+      {data ? <Header {...data.restaurant} /> : <div>loading</div>}
+
+      {data && (
+        <section className="content">
+          {Object.keys(data.menu).map(categorie => {
+            if (data.menu[categorie].length) {
+              return (
+                <>
+                  <h2>{categorie}</h2>
+
+                  <Categorie categorieData={data.menu[categorie]} />
+                </>
+              );
+            } else {
+              return null;
+            }
+          })}
+        </section>
+      )}
+
+      {/* //fin de div App */}
     </div>
   );
 }
