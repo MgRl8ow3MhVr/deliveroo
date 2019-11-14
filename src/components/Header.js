@@ -8,7 +8,7 @@ const Header = props => {
         <p>{props.description} </p>
       </div>
       <picture>
-        <img src={props.picture} href="imgheader"></img>
+        <img src={props.picture} alt="imgheader"></img>
       </picture>
     </header>
   );

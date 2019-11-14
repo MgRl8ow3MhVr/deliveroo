@@ -1,5 +1,9 @@
 * {
   font-family: "IBM Plex Sans", sans-serif;
+
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .App {
@@ -42,10 +46,106 @@ header img {
   border-radius: 7px;
 }
 
+/* # # # # # # # # # # # # MAIN # # # # # # # # # # # # */
+.contentAndBasket {
+  display: flex;
+  background-color: #f4f5f5;
+  padding-top: 20px;
+}
+
+/* # # # # # # # # # # # # BASKET # # # # # # # # # # # # */
+
+/* toute la bande de droite qui contient le panier */
+.sectionBasket {
+  width: 30%;
+}
+
+/* Le panier lui meme*/
+.basket {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: white;
+  position: sticky;
+  top: 30px;
+  margin-top: 30px;
+  margin-right: 30px;
+}
+
+/* le bouton valider */
+
+.basket > button {
+  width: 100%;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #00cdbd;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.basket .boutongris {
+  background-color: rgb(182, 179, 179);
+}
+
+/* un item dans le basket */
+.basket nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-right: 10px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  align-items: center;
+}
+
+/* les boutons plus et moins */
+.basket nav button {
+  flex: 0 0 auto;
+  font-size: 1rem;
+  border-radius: 50%;
+  height: 1.5rem;
+  line-height: 50%;
+  width: 1.5rem;
+  border: solid 1.5px #00cdbd;
+  color: #00cdbd;
+  margin: 7px;
+  transform: scale(0.8);
+}
+.basket nav button:hover {
+  cursor: pointer;
+}
+
+/* le 4eme item qui est qui est le nom */
+.basket nav span:nth-child(4) {
+  width: 100%;
+  overflow: scroll;
+  margin-right: 10px;
+}
+
+.basket h2 {
+  padding-left: 0px;
+}
+
+nav + div {
+  /* background-color: rgb(215, 213, 213); */
+  border-bottom: solid 1px rgb(214, 211, 211);
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* dans le cas ou le panier est vide */
+.paniervide {
+  padding: 30px;
+}
+
 /* # # # # # # # # # # # # CONTENT # # # # # # # # # # # # */
 
 .content {
-  background-color: #f4f5f5;
+  width: 70%;
 }
 
 /* ici CONTRAINTE max 800px du conteneur des dishes*/
@@ -54,7 +154,6 @@ header img {
   margin: 15px;
   display: flex;
   flex-wrap: wrap;
-  max-width: 800px;
 }
 h2 {
   text-align: start;
@@ -78,6 +177,7 @@ h2 {
 }
 .dishes:hover {
   box-shadow: 8px 8px 20px #cdcccc;
+  cursor: pointer;
 }
 
 .dishes nav {
@@ -102,9 +202,27 @@ h3 {
 }
 
 .dishes p {
-  font-size: 0.8rem;
-  overflow: scroll;
+  font-size: 0.7rem;
+  /* overflow: scroll; */
   color: rgb(157, 157, 157);
+
+  position: relative;
+  height: 3.6em; /* exactly three lines */
+  overflow: hidden;
+}
+.dishes p:after {
+  content: "";
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 70%;
+  height: 1.2em;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1) 50%
+  );
 }
 
 .dishes span {
