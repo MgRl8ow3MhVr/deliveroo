@@ -9,7 +9,7 @@ const Basket = props => {
     return (
       <div className="sectionBaskset">
         <div className="basket">
-          <button>MANGER !!</button>
+          <button>MANGER !! ET PAYER</button>
           {basket.map((element, index) => {
             total += Number(element.price) * Number(element.quantity);
             total = Math.floor(total * 100) / 100;
