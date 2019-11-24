@@ -1,4 +1,5 @@
 import React from "react";
+// Nous sommes sur la branche develop
 
 const Basket = props => {
   const { basket, addInBasket } = props;
