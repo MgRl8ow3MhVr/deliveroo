@@ -1,5 +1,6 @@
 import React from "react";
 // Nous sommes sur la branche develop
+// Nous sommes sur la branche derivee de develop FEATURE
 
 const Basket = props => {
   const { basket, addInBasket } = props;
