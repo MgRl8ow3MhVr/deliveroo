@@ -7,9 +7,9 @@ const Basket = props => {
   if (basket.length > 0) {
     //on montre le panier lorsque qu'il y a au moins un element
     return (
-      <div className="sectionBasket">
+      <div className="sectionBaskset">
         <div className="basket">
-          <button>PAYER ! MANGER !!</button>
+          <button>MANGER !!</button>
           {basket.map((element, index) => {
             total += Number(element.price) * Number(element.quantity);
             total = Math.floor(total * 100) / 100;
